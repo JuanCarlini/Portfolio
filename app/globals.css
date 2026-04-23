@@ -351,8 +351,17 @@ a { text-decoration: none; }
 
 /* ── FOOTER ─────────────────────────────────────────────── */
 footer { border-top: 1px solid var(--line); padding: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; background: var(--bg); }
-.footer-left { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); }
-.footer-left span { color: var(--accent); }
+.footer-left { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.footer-portrait {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  border: 1px solid var(--accent-dim);
+  flex-shrink: 0;
+}
+.footer-brand { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--white); }
+.footer-brand span { color: var(--accent); }
 .footer-right { font-family: var(--font-code); font-size: 11px; color: var(--muted); letter-spacing: .08em; }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a {
