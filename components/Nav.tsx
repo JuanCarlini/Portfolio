@@ -33,7 +33,7 @@ export default function Nav() {
       <div className="nav-links">
         {navLinks[lang].map(l => <a key={l.href} href={l.href}>{l.label}</a>)}
       </div>
-      <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+      <div className="nav-actions">
         <button onClick={toggle} className="lang-toggle" aria-label="Toggle language">
           <span className={lang === "es" ? "lang-active" : "lang-inactive"}>ES</span>
           <span className="lang-sep">/</span>

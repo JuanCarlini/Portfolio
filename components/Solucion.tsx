@@ -21,8 +21,8 @@ export default function Solucion() {
         <div className="solution-block-big">
           <p className="solution-quote">{tx.quote.a} <em>{tx.quote.em}</em> {tx.quote.b}</p>
           <div>
-            <p className="solution-text" style={{fontSize:"16px",marginBottom:"24px"}}>{tx.p1}</p>
-            <p className="solution-text" style={{fontSize:"16px"}}>{tx.p2}</p>
+            <p className="solution-prose">{tx.p1}</p>
+            <p className="solution-prose">{tx.p2}</p>
           </div>
         </div>
       </div>

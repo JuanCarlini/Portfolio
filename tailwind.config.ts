@@ -1,5 +1,11 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Tailwind reads tokens from the CSS variables declared in
+ * app/globals.css (:root block). Changing a token value there
+ * updates both the custom CSS classes and any Tailwind utility
+ * class that consumes it. Single source of truth.
+ */
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -9,43 +15,54 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "#0A0A0A",
-          2: "#111111",
-          3: "#181818",
+          DEFAULT: "var(--color-bg)",
+          2: "var(--color-surface)",
+          3: "var(--color-surface-raised)",
         },
-        line: "#222222",
+        line: "var(--color-rule)",
         text: {
-          DEFAULT: "#E2DED6",
-          muted: "#787066",
-          white: "#F0EDE8",
+          DEFAULT: "var(--color-text)",
+          muted: "var(--color-text-muted)",
+          white: "var(--color-text-strong)",
         },
         accent: {
-          DEFAULT: "#C8783A",
-          dim: "#8A4E22",
+          DEFAULT: "var(--color-accent)",
+          dim: "var(--color-accent-muted)",
+          on: "var(--color-on-accent)",
         },
       },
       fontFamily: {
-        syne: ["var(--font-syne)", "sans-serif"],
-        dm: ["var(--font-dm)", "sans-serif"],
+        display: ["var(--font-syne)", "sans-serif"],
+        body: ["var(--font-dm)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
-      letterSpacing: {
-        wide2: "0.12em",
-      },
       fontSize: {
-        "hero": "clamp(52px, 6vw, 88px)",
-        "section": "clamp(36px, 4vw, 56px)",
-        "cta": "clamp(48px, 6vw, 84px)",
-        "stat": "clamp(32px, 3vw, 42px)",
+        display: "var(--fs-display)",
+        h1: "var(--fs-h1)",
+        h2: "var(--fs-h2)",
+        statement: "var(--fs-statement)",
       },
-      animation: {
-        marquee: "marquee 32s linear infinite",
+      spacing: {
+        "space-1": "var(--space-1)",
+        "space-2": "var(--space-2)",
+        "space-3": "var(--space-3)",
+        "space-4": "var(--space-4)",
+        "space-5": "var(--space-5)",
+        "space-6": "var(--space-6)",
+        "space-7": "var(--space-7)",
+        "space-8": "var(--space-8)",
+        "space-9": "var(--space-9)",
+        "space-10": "var(--space-10)",
       },
-      keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
+      transitionTimingFunction: {
+        "out-expo": "var(--ease-out)",
+        "in-out-custom": "var(--ease-in-out)",
+      },
+      transitionDuration: {
+        instant: "var(--dur-instant)",
+        fast: "var(--dur-fast)",
+        base: "var(--dur-base)",
+        slow: "var(--dur-slow)",
       },
     },
   },

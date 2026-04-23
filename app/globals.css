@@ -6,17 +6,126 @@
 .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* ── DESIGN TOKENS ─────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────
+   DESIGN TOKENS — single source of truth
+   ─────────────────────────────────────────────────────────
+   Etapa 1: token infrastructure. Existing CSS keeps consuming
+   the legacy short names (--bg, --line, --accent, etc.) via the
+   aliases at the bottom of this block. The new --color-*, --fs-*,
+   --space-*, --ease-*, --dur-* tokens are wired in during later
+   etapas when each component gets rewritten.
+   ───────────────────────────────────────────────────────── */
 :root {
-  --bg:         #0A0A0A;
-  --bg-2:       #111111;
-  --bg-3:       #181818;
-  --line:       #222222;
-  --text:       #E2DED6;
-  --muted:      #787066;
-  --accent:     #C8783A;
-  --accent-dim: #8A4E22;
-  --white:      #F0EDE8;
+  /* ── Color — surfaces ───────────────────────────────── */
+  --color-bg:              #0A0A0A;
+  --color-surface:         #111111;
+  --color-surface-raised:  #181818;
+  --color-rule:            #222222;
+
+  /* ── Color — text ───────────────────────────────────── */
+  --color-text:            #E2DED6;
+  --color-text-strong:     #F0EDE8;
+  --color-text-muted:      #787066;
+
+  /* ── Color — accent + affordances ───────────────────── */
+  --color-accent:          #C8783A;
+  --color-accent-muted:    #8A4E22;
+  --color-on-accent:       #000000;
+
+  /* ── Color — overlays ───────────────────────────────── */
+  --color-nav-bg:          rgba(10, 10, 10, 0.92);
+
+  /* ── Typography — families ──────────────────────────── */
+  --font-display:          var(--font-syne), sans-serif;
+  --font-body:             var(--font-dm), sans-serif;
+  --font-code:             var(--font-mono), monospace;
+
+  /* ── Typography — scale (13 steps, covers current design) */
+  --fs-display:            clamp(48px, 6vw, 84px);
+  --fs-h1:                 clamp(44px, 4.5vw, 72px);
+  --fs-h2:                 clamp(36px, 4vw, 56px);
+  --fs-statement:          clamp(28px, 3vw, 42px);
+  --fs-h4:                 32px;
+  --fs-title:              24px;
+  --fs-title-sm:           20px;
+  --fs-body-lg:            18px;
+  --fs-body-md:            17px;
+  --fs-body:               16px;
+  --fs-body-sm:            15px;
+  --fs-small:              14px;
+  --fs-small-alt:          13px;
+  --fs-caption:            12px;
+  --fs-caption-sm:         11px;
+  --fs-micro:              10px;
+
+  /* ── Typography — weights ───────────────────────────── */
+  --fw-light:              300;
+  --fw-regular:            400;
+  --fw-medium:             500;
+  --fw-semibold:           600;
+  --fw-bold:               700;
+  --fw-black:              800;
+
+  /* ── Typography — line heights ──────────────────────── */
+  --lh-display:            0.95;
+  --lh-tight:              1.05;
+  --lh-snug:               1.15;
+  --lh-headline:           1.2;
+  --lh-relaxed:            1.4;
+  --lh-body:               1.65;
+  --lh-prose:              1.7;
+
+  /* ── Typography — tracking ──────────────────────────── */
+  --tr-display:            -0.04em;
+  --tr-tight:              -0.03em;
+  --tr-snug:               -0.02em;
+  --tr-normal:             0;
+  --tr-wide:               0.04em;
+  --tr-wider:              0.06em;
+  --tr-widest:             0.08em;
+  --tr-mono:               0.1em;
+  --tr-mono-loose:         0.12em;
+
+  /* ── Spacing — 10-step scale ────────────────────────── */
+  --space-1:               4px;
+  --space-2:               8px;
+  --space-3:               12px;
+  --space-4:               16px;
+  --space-5:               24px;
+  --space-6:               32px;
+  --space-7:               48px;
+  --space-8:               64px;
+  --space-9:               96px;
+  --space-10:              128px;
+
+  /* ── Layout ─────────────────────────────────────────── */
+  --container-max:         1140px;
+  --container-pad:         40px;
+  --container-pad-sm:      20px;
+
+  /* ── Motion — easings & durations ───────────────────── */
+  --ease-out:              cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:           cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-instant:           100ms;
+  --dur-fast:              200ms;
+  --dur-base:              300ms;
+  --dur-slow:              650ms;
+  --dur-marquee:           28s;
+
+  /* ── Legacy aliases ─────────────────────────────────────
+     Existing component CSS still consumes these short names.
+     They point at the canonical tokens above. Remove during
+     Etapa 2 when components are rewritten to consume tokens
+     directly. */
+  --bg:          var(--color-bg);
+  --bg-2:        var(--color-surface);
+  --bg-3:        var(--color-surface-raised);
+  --line:        var(--color-rule);
+  --text:        var(--color-text);
+  --muted:       var(--color-text-muted);
+  --white:       var(--color-text-strong);
+  --accent:      var(--color-accent);
+  --accent-dim:  var(--color-accent-muted);
 }
 
 /* ── BASE ───────────────────────────────────────────────── */
@@ -32,14 +141,15 @@ a { text-decoration: none; }
 .sec-border { border-top: 1px solid var(--line); }
 
 /* ── NAV ────────────────────────────────────────────────── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(10,10,10,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 40px; display: flex; justify-content: space-between; align-items: center; background: var(--color-nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .nav-logo { font-family: var(--font-syne), sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .04em; color: var(--white); }
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 36px; }
 .nav-links a { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
 .nav-links a:hover { color: var(--text); }
 .nav-cta { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-dim); padding: 10px 20px; transition: all .2s; }
-.nav-cta:hover { background: var(--accent); color: #000; }
+.nav-cta:hover { background: var(--accent); color: var(--color-on-accent); }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
 
 /* ── LANG TOGGLE ────────────────────────────────────────── */
 .lang-toggle { background: none; border: 1px solid var(--line); padding: 8px 14px; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: border-color .2s; }
@@ -49,7 +159,7 @@ a { text-decoration: none; }
 .lang-sep     { font-family: var(--font-mono), monospace; font-size: 11px; color: var(--line); }
 
 /* ── BUTTONS ────────────────────────────────────────────── */
-.btn-primary { font-family: var(--font-mono), monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: var(--accent); color: #000; padding: 16px 32px; font-weight: 500; transition: all .2s; display: inline-block; }
+.btn-primary { font-family: var(--font-mono), monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: var(--accent); color: var(--color-on-accent); padding: 16px 32px; font-weight: 500; transition: all .2s; display: inline-block; }
 .btn-primary:hover { background: var(--white); }
 .btn-ghost { font-family: var(--font-mono), monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 16px 0; transition: color .2s; }
 .btn-ghost:hover { color: var(--text); }
@@ -73,7 +183,7 @@ a { text-decoration: none; }
 
 /* ── MARQUEE ────────────────────────────────────────────── */
 .marquee-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; overflow: hidden; background: var(--bg-2); }
-.marquee-track { display: flex; gap: 48px; animation: marquee 28s linear infinite; white-space: nowrap; }
+.marquee-track { display: flex; gap: 48px; animation: marquee var(--dur-marquee) linear infinite; white-space: nowrap; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .marquee-item { font-family: var(--font-mono), monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 16px; }
 .marquee-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
@@ -169,6 +279,20 @@ footer { border-top: 1px solid var(--line); padding: 40px; display: flex; justif
 .footer-left { font-family: var(--font-syne), sans-serif; font-size: 15px; font-weight: 700; color: var(--white); }
 .footer-left span { color: var(--accent); }
 .footer-right { font-family: var(--font-mono), monospace; font-size: 11px; color: var(--muted); letter-spacing: .08em; }
+
+/* ── SOLUCION — prose paragraphs ────────────────────────── */
+.solution-prose { font-size: var(--fs-body); color: var(--muted); line-height: var(--lh-prose); }
+.solution-prose + .solution-prose { margin-top: var(--space-5); }
+
+/* ── DIFERENCIADOR — lead paragraph ─────────────────────── */
+.diff-lead { font-size: var(--fs-body-sm); color: var(--muted); line-height: var(--lh-prose); }
+
+/* ── 404 ────────────────────────────────────────────────── */
+.not-found        { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; background: var(--bg); padding: 0 var(--container-pad); }
+.not-found-inner  { max-width: 600px; }
+.not-found-code   { font-family: var(--font-mono), monospace; font-size: var(--fs-caption-sm); letter-spacing: var(--tr-mono); color: var(--accent); display: block; margin-bottom: var(--space-5); }
+.not-found-title  { font-family: var(--font-syne), sans-serif; font-size: clamp(48px, 6vw, 80px); font-weight: var(--fw-black); color: var(--white); line-height: var(--lh-display); letter-spacing: var(--tr-tight); margin-bottom: var(--space-5); }
+.not-found-text   { font-size: var(--fs-body); color: var(--muted); margin-bottom: var(--space-7); line-height: var(--lh-prose); }
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 900px) {

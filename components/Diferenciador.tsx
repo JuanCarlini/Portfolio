@@ -12,7 +12,7 @@ export default function Diferenciador() {
         <div className="diff-grid">
           <div className="diff-left">
             <p className="diff-statement">{tx.statement.a} <em>{tx.statement.em}</em> {tx.statement.b}</p>
-            <p style={{fontSize:"15px",color:"var(--muted)",lineHeight:"1.7"}}>{tx.statementDesc}</p>
+            <p className="diff-lead">{tx.statementDesc}</p>
           </div>
           <div className="diff-right">
             <div className="diff-points">
