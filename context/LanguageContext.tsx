@@ -124,62 +124,6 @@ export const tServicios = {
   },
 };
 
-// ── Stack translations ──────────────────────────────────
-export const tStack = {
-  es: {
-    num:"06 — Tecnologias", title:"Stack tecnologico.",
-    desc:"No trabajo con una sola herramienta. Selecciono la combinacion correcta segun el caso: infraestructura existente, presupuesto, escala esperada y equipo que lo va a mantener.",
-  },
-  en: {
-    num:"06 — Technologies", title:"Technology stack.",
-    desc:"I don't work with a single tool. I select the right combination for each case: existing infrastructure, budget, expected scale and the team that will maintain it.",
-  },
-};
-
-// ── Diferenciador translations ──────────────────────────
-export const tDiff = {
-  es: {
-    num:"07 — Por que elegirme", title:"No soy un programador. Soy quien construye el sistema.",
-    desc:"Hay muchos desarrolladores que pueden escribir un workflow. La diferencia esta en entender que problema de negocio resuelve ese workflow, y construirlo de forma que funcione en produccion y escale.",
-    statement:{ a:"El codigo es el medio. El", em:"resultado operativo", b:"es el objetivo." },
-    statementDesc:"Trabajo con logica de negocio real. Antes de construir, entiendo como funciona tu operacion: quien hace que, cuando, con que datos y con que herramientas. Eso determina lo que se construye.",
-    points:[
-      { title:"Sistemas completos, no piezas sueltas",        text:"No entrego un script. Entrego un sistema con manejo de errores, logs, notificaciones, documentacion y logica de recuperacion. Algo que puede mantenerse." },
-      { title:"Experiencia en entornos empresariales reales",  text:"He trabajado dentro de empresas con Power Platform, Dataverse, facturacion argentina, CRMs y equipos que no son tecnicos. Se como adaptar la solucion al contexto." },
-      { title:"IA aplicada donde agrega valor",               text:"No uso IA para impresionar. La uso donde tiene sentido real: clasificacion, extraccion, respuesta en lenguaje natural. Con evaluacion de costo-beneficio." },
-      { title:"Lo que construyo puede crecer",                text:"Arquitectura pensada para escalar. No hay atajos que despues se convierten en deuda tecnica. El sistema que entrego hoy soporta el doble de volumen el anio que viene." },
-    ],
-  },
-  en: {
-    num:"07 — Why choose me", title:"I'm not a programmer. I'm the one who builds the system.",
-    desc:"Many developers can write a workflow. The difference is understanding what business problem that workflow solves, and building it so it works in production and scales.",
-    statement:{ a:"Code is the means. The", em:"operational result", b:"is the goal." },
-    statementDesc:"I work with real business logic. Before building, I understand how your operation works: who does what, when, with what data and what tools. That determines what gets built.",
-    points:[
-      { title:"Complete systems, not loose pieces",           text:"I don't deliver a script. I deliver a system with error handling, logs, notifications, documentation and recovery logic. Something that can be maintained." },
-      { title:"Experience in real enterprise environments",   text:"I've worked inside companies with Power Platform, Dataverse, CRMs and non-technical teams. I know how to adapt the solution to the context." },
-      { title:"AI applied where it adds value",              text:"I don't use AI to impress. I use it where it makes real sense: classification, extraction, natural language response. With cost-benefit evaluation." },
-      { title:"What I build can grow",                       text:"Architecture designed to scale. No shortcuts that later become technical debt. The system I deliver today handles double the volume next year." },
-    ],
-  },
-};
-
-// ── CTA translations ────────────────────────────────────
-export const tCTA = {
-  es: {
-    h2a:"Si tu operacion ya no puede seguir", h2em:"funcionando asi",
-    sub:"Agendemos una llamada de diagnostico. Sin compromiso. En 30 minutos identifico si la automatizacion puede tener impacto real en tu negocio, y como.",
-    cta1:"Agendar diagnostico gratuito", cta2:"O escribime directamente",
-    note:"Rosario, Argentina — Trabajo con empresas de toda la region",
-  },
-  en: {
-    h2a:"If your operation can no longer keep", h2em:"working like this",
-    sub:"Let's schedule a diagnostic call. No commitment. In 30 minutes I'll identify if automation can have real impact on your business, and how.",
-    cta1:"Schedule free diagnostic", cta2:"Or write me directly",
-    note:"Rosario, Argentina — I work with companies across the region",
-  },
-};
-
 // ── Context ─────────────────────────────────────────────
 interface LangCtx { lang: Lang; toggle: () => void; }
 const LanguageCtx = createContext<LangCtx>({ lang:"es", toggle:()=>{} });

@@ -39,9 +39,6 @@ export const metadata: Metadata = {
     title: "Juan Andres Carlini — Automation & AI Developer",
     description: "Sistemas de automatizacion e IA que trabajan cuando tu equipo no puede.",
   },
-  icons: {
-    icon: "/favicon.svg",
-  },
 };
 
 export default function RootLayout({

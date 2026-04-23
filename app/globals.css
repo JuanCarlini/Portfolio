@@ -242,3 +242,10 @@ footer { border-top: 1px solid var(--line); padding: 40px; display: flex; justif
   .solution-block-big { display: block; }
   .solution-block-big > * + * { margin-top: 28px; }
 }
+
+/* ── REDUCED MOTION ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+}
