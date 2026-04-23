@@ -19,6 +19,12 @@ export default function Proyectos() {
               <p className="project-text">{p.problem}</p>
               <span className="project-section-label">{lb.solution}</span>
               <p className="project-text">{p.solution}</p>
+              {p.diagram && (
+                <>
+                  <span className="project-section-label">{lb.architecture}</span>
+                  <pre className="project-diagram">{p.diagram}</pre>
+                </>
+              )}
               <span className="project-section-label">{lb.result}</span>
               <p className="project-result">{p.result}</p>
               <div className="project-stack">{p.stack.map(t => <span key={t} className="tag">{t}</span>)}</div>

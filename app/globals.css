@@ -306,6 +306,19 @@ a { text-decoration: none; }
 .project-text { font-size: 14px; color: var(--muted); line-height: 1.65; }
 .project-result { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--white); line-height: 1.4; }
 .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 32px; }
+.project-diagram {
+  font-family: var(--font-code);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 16px 20px;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 2;
+}
 
 /* ── STACK ──────────────────────────────────────────────── */
 .stack-section { background: var(--bg-2); border-top: 1px solid var(--line); }
