@@ -2,7 +2,7 @@
 // ── Proceso translations ────────────────────────────────
 export const tProceso = {
   es: {
-    num:"04 — Como trabajo", title:"Un proceso que reduce el riesgo.",
+    num:"[SEC.04 / Como trabajo]", title:"Un proceso que reduce el riesgo.",
     desc:"Cada implementacion sigue una estructura que protege tu inversion. No hay sorpresas en el medio porque el trabajo de entender el problema ya esta hecho antes de escribir la primera linea.",
     steps:[
       { num:"01", title:"Diagnostico",      desc:"Mapeamos tu operacion actual. Identifico los cuellos de botella, los procesos candidatos y el impacto potencial de cada automatizacion. Priorizamos por ROI." },
@@ -13,7 +13,7 @@ export const tProceso = {
     ],
   },
   en: {
-    num:"04 — How I work", title:"A process that reduces risk.",
+    num:"[SEC.04 / How I work]", title:"A process that reduces risk.",
     desc:"Every implementation follows a structure that protects your investment. No surprises mid-project because the work of understanding the problem is done before writing the first line.",
     steps:[
       { num:"01", title:"Diagnosis",       desc:"We map your current operation. I identify bottlenecks, candidate processes and the potential impact of each automation. We prioritize by ROI." },
@@ -28,7 +28,7 @@ export const tProceso = {
 // ── Proyectos translations ──────────────────────────────
 export const tProyectos = {
   es: {
-    num:"05 — Proyectos", title:"Casos reales. Resultados concretos.",
+    num:"[SEC.05 / Proyectos]", title:"Casos reales. Resultados concretos.",
     desc:"Cada proyecto listado aqui resolvio un problema operativo real. No hay demos ni POCs: sistemas en produccion con impacto medible.",
     labels:{ problem:"El problema", solution:"La solucion", result:"Resultado" },
     items:[
@@ -55,7 +55,7 @@ export const tProyectos = {
     ],
   },
   en: {
-    num:"05 — Projects", title:"Real cases. Concrete results.",
+    num:"[SEC.05 / Projects]", title:"Real cases. Concrete results.",
     desc:"Every project listed here solved a real operational problem. No demos or POCs: production systems with measurable impact.",
     labels:{ problem:"The problem", solution:"The solution", result:"Result" },
     items:[
@@ -86,11 +86,11 @@ export const tProyectos = {
 // ── Stack translations ──────────────────────────────────
 export const tStack = {
   es: {
-    num:"06 — Tecnologias", title:"Stack tecnologico.",
+    num:"[SEC.06 / Tecnologias]", title:"Stack tecnologico.",
     desc:"No trabajo con una sola herramienta. Selecciono la combinacion correcta segun el caso: infraestructura existente, presupuesto, escala esperada y equipo que lo va a mantener.",
   },
   en: {
-    num:"06 — Technologies", title:"Technology stack.",
+    num:"[SEC.06 / Technologies]", title:"Technology stack.",
     desc:"I don't work with a single tool. I select the right combination for each case: existing infrastructure, budget, expected scale and the team that will maintain it.",
   },
 };
@@ -98,7 +98,7 @@ export const tStack = {
 // ── Diferenciador translations ──────────────────────────
 export const tDiff = {
   es: {
-    num:"07 — Por que elegirme", title:"No soy un programador. Soy quien construye el sistema.",
+    num:"[SEC.07 / Por que elegirme]", title:"No soy un programador. Soy quien construye el sistema.",
     desc:"Hay muchos desarrolladores que pueden escribir un workflow. La diferencia esta en entender que problema de negocio resuelve ese workflow, y construirlo de forma que funcione en produccion y escale.",
     statement:{ a:"El codigo es el medio. El", em:"resultado operativo", b:"es el objetivo." },
     statementDesc:"Trabajo con logica de negocio real. Antes de construir, entiendo como funciona tu operacion: quien hace que, cuando, con que datos y con que herramientas. Eso determina lo que se construye.",
@@ -110,7 +110,7 @@ export const tDiff = {
     ],
   },
   en: {
-    num:"07 — Why choose me", title:"I'm not a programmer. I'm the one who builds the system.",
+    num:"[SEC.07 / Why choose me]", title:"I'm not a programmer. I'm the one who builds the system.",
     desc:"Many developers can write a workflow. The difference is understanding what business problem that workflow solves, and building it so it works in production and scales.",
     statement:{ a:"Code is the means. The", em:"operational result", b:"is the goal." },
     statementDesc:"I work with real business logic. Before building, I understand how your operation works: who does what, when, with what data and what tools. That determines what gets built.",

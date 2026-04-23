@@ -22,7 +22,7 @@ export const t = {
       ],
     },
     problemas: {
-      num: "01 — Diagnostico",
+      num: "[SEC.01 / Diagnostico]",
       title: "Esto ya no puede seguir funcionando asi.",
       desc: "Los procesos que funcionaban con 5 personas no escalan con 50. El crecimiento no es el problema: es el sistema operativo detras de tu negocio.",
       items: [
@@ -46,14 +46,14 @@ export const t = {
       cta1: "Let's talk about your project",
       cta2: "View projects",
       stats: [
-        { num: "+4",  unit: "yr",      label: "Automation experience"             },
+        { num: "+2",  unit: "yr",      label: "Automation experience"             },
         { num: "End", unit: "-to-End", label: "Full implementation"                },
         { num: "AI",  unit: "+",       label: "Agents with real LLMs"             },
         { num: "0",   unit: "h",       label: "Human time on automated processes" },
       ],
     },
     problemas: {
-      num: "01 — Diagnosis",
+      num: "[SEC.01 / Diagnosis]",
       title: "This can't keep working like this.",
       desc: "Processes that worked with 5 people don't scale with 50. Growth isn't the problem — it's the operating system behind your business.",
       items: [
@@ -71,7 +71,7 @@ export const t = {
 // ── Solucion translations ───────────────────────────────
 export const tSolucion = {
   es: {
-    num: "02 — El enfoque", title: "Automatizacion con logica de negocio real.",
+    num: "[SEC.02 / El enfoque]", title: "Automatizacion con logica de negocio real.",
     desc: "No implemento herramientas. Diseno sistemas que entienden como funciona tu operacion y la ejecutan solos. La diferencia esta en saber exactamente donde tiene que intervenir la IA.",
     blocks: [
       { tag:"Automatizacion",         title:"Flujos que corren solos, sin supervision",                      text:"Desde triggers simples hasta pipelines complejos con condicionales, reintentos y manejo de errores. Construidos con n8n o Power Automate segun la infraestructura." },
@@ -84,7 +84,7 @@ export const tSolucion = {
     p2:"El objetivo no es impresionar con tecnologia. Es que el sistema haga exactamente lo que necesitas, siempre.",
   },
   en: {
-    num: "02 — The approach", title: "Automation with real business logic.",
+    num: "[SEC.02 / The approach]", title: "Automation with real business logic.",
     desc: "I don't implement tools. I design systems that understand how your operation works and execute it on their own. The difference lies in knowing exactly where AI needs to step in.",
     blocks: [
       { tag:"Automation",        title:"Flows that run on their own, unsupervised",                   text:"From simple triggers to complex pipelines with conditionals, retries and error handling. Built with n8n or Power Automate depending on the infrastructure." },
@@ -101,7 +101,7 @@ export const tSolucion = {
 // ── Servicios translations ──────────────────────────────
 export const tServicios = {
   es: {
-    num:"03 — Servicios", title:"Sistemas que construyo.",
+    num:"[SEC.03 / Servicios]", title:"Sistemas que construyo.",
     desc:"Cada proyecto es un sistema completo, no un componente aislado. Diseno, construyo, pruebo y entrego con documentacion. Lo que recibis puede crecer.",
     items: [
       { idx:"01", name:"Automatizacion de atencion al cliente",  desc:"Bots para WhatsApp, chat y formularios que atienden, clasifican y resuelven sin intervencion humana. Con escalacion inteligente y CRM integrado.",                                                                tags:["n8n","Meta API","LLMs","Kommo"] },
@@ -112,7 +112,7 @@ export const tServicios = {
     ],
   },
   en: {
-    num:"03 — Services", title:"Systems I build.",
+    num:"[SEC.03 / Services]", title:"Systems I build.",
     desc:"Every project is a complete system, not an isolated component. I design, build, test and deliver with documentation. What you receive can grow.",
     items: [
       { idx:"01", name:"Customer support automation",   desc:"Bots for WhatsApp, chat and forms that handle, classify and resolve without human intervention. With intelligent escalation and CRM integration.",                                                          tags:["n8n","Meta API","LLMs","Kommo"] },
