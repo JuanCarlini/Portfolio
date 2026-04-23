@@ -1,25 +1,13 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import LangSync from "@/components/LangSync";
 import ScrollAnimations from "@/components/ScrollAnimations";
 import "./globals.css";
 
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
-});
-
-const dm = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-dm",
-});
-
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
 });
 
@@ -47,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${syne.variable} ${dm.variable} ${mono.variable}`}>
+    <html lang="es" className={mono.variable}>
       <body><LanguageProvider><LangSync /><ScrollAnimations />{children}</LanguageProvider></body>
     </html>
   );
