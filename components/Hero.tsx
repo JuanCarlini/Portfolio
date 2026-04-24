@@ -29,8 +29,8 @@ export default function Hero() {
           </div>
           <div className="hero-right">
             <div className="stat-grid">
-              {tx.stats.map(s => (
-                <div key={s.label} className="stat-box">
+              {tx.stats.map((s, i) => (
+                <div key={i} className="stat-box fade-up">
                   <div className="stat-num">{s.num}<span>{s.unit}</span></div>
                   <p className="stat-label">{s.label}</p>
                 </div>

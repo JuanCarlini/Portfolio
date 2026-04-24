@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useLang, t } from "@/context/LanguageContext";
 
 const mailto = {
@@ -27,8 +28,17 @@ const navLinks = {
 export default function Nav() {
   const { lang, toggle } = useLang();
   const tx = t[lang].nav;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="nav">
+    <nav className={scrolled ? "nav nav--scrolled" : "nav"}>
       <Link href="#" className="nav-logo">Carlini<span>.</span></Link>
       <div className="nav-links">
         {navLinks[lang].map(l => <a key={l.href} href={l.href}>{l.label}</a>)}

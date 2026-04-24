@@ -26,8 +26,8 @@ export default function Stack() {
       <div className="container">
         <SectionHeader num={tx.num} title={tx.title} desc={tx.desc} />
         <div className="stack-grid">
-          {cols[lang].map(col => (
-            <div key={col.title} className="stack-col">
+          {cols[lang].map((col, i) => (
+            <div key={i} className="stack-col fade-up">
               <span className="stack-col-title">{col.title}</span>
               <div className="stack-items">
                 {col.items.map(item => (

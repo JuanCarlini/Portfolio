@@ -16,8 +16,8 @@ export default function Diferenciador() {
           </div>
           <div className="diff-right">
             <div className="diff-points">
-              {tx.points.map(p => (
-                <div key={p.title}>
+              {tx.points.map((p, i) => (
+                <div key={i} className="fade-up">
                   <div className="diff-point-title">{p.title}</div>
                   <p className="diff-point-text">{p.text}</p>
                 </div>

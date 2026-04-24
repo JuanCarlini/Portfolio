@@ -10,15 +10,15 @@ export default function Solucion() {
       <div className="container">
         <SectionHeader num={tx.num} title={tx.title} desc={tx.desc} />
         <div className="solution-grid">
-          {tx.blocks.map(b => (
-            <div key={b.tag} className="solution-block">
+          {tx.blocks.map((b, i) => (
+            <div key={i} className="solution-block fade-up">
               <span className="solution-icon">{b.tag}</span>
               <h3 className="solution-title">{b.title}</h3>
               <p className="solution-text">{b.text}</p>
             </div>
           ))}
         </div>
-        <div className="solution-block-big">
+        <div className="solution-block-big fade-up">
           <p className="solution-quote">{tx.quote.a} <em>{tx.quote.em}</em> {tx.quote.b}</p>
           <div>
             <p className="solution-prose">{tx.p1}</p>

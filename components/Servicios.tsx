@@ -11,7 +11,7 @@ export default function Servicios() {
         <SectionHeader num={tx.num} title={tx.title} desc={tx.desc} />
         <div className="services-list">
           {tx.items.map(s => (
-            <div key={s.idx} className="service-row">
+            <div key={s.idx} className="service-row fade-up">
               <span className="service-idx">{s.idx}</span>
               <div className="service-name">{s.name}</div>
               <p className="service-desc">{s.desc}</p>

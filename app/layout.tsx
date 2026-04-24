@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import LangSync from "@/components/LangSync";
 import ScrollAnimations from "@/components/ScrollAnimations";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const mono = IBM_Plex_Mono({
@@ -61,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={mono.variable}>
-      <body><LanguageProvider><LangSync /><ScrollAnimations />{children}</LanguageProvider></body>
+      <body><LanguageProvider><LangSync /><ScrollAnimations /><ScrollProgress />{children}</LanguageProvider></body>
     </html>
   );
 }

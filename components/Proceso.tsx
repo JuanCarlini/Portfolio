@@ -11,7 +11,7 @@ export default function Proceso() {
         <SectionHeader num={tx.num} title={tx.title} desc={tx.desc} />
         <div className="process-steps">
           {tx.steps.map(s => (
-            <div key={s.num} className="step">
+            <div key={s.num} className="step fade-up">
               <span className="step-num">{s.num}</span>
               <div className="step-title">{s.title}</div>
               <p className="step-desc">{s.desc}</p>
