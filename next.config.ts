@@ -9,15 +9,24 @@ import type { NextConfig } from "next";
  *     and Tailwind both inject inline <style> tags. Mitigating XSS
  *     through nonces would require a middleware layer and does not
  *     compose well with fully static export, which this site is.
+ *   - 'unsafe-eval' is only added for script-src in development,
+ *     where React uses eval() to rebuild cross-environment callstacks
+ *     (HMR, error overlay). Production never needs it.
  *   - The site has no user input, no API routes, no external scripts,
  *     so 'unsafe-inline' is an acceptable tradeoff.
  */
+const isDev = process.env.NODE_ENV === "development";
+
+const scriptSrc = isDev
+  ? "'self' 'unsafe-inline' 'unsafe-eval'"
+  : "'self' 'unsafe-inline'";
+
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      `script-src ${scriptSrc}`,
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self' data:",
       "img-src 'self' data: blob:",
