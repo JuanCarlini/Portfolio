@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import LangSync from "@/components/LangSync";
 import ScrollAnimations from "@/components/ScrollAnimations";
 import ScrollProgress from "@/components/ScrollProgress";
+import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
 const mono = IBM_Plex_Mono({
@@ -12,16 +13,8 @@ const mono = IBM_Plex_Mono({
   variable: "--font-mono",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "https://portfolio.n8njuani.cc");
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: "Juan Andres Carlini — Automation & AI Developer",
   description:
     "Diseño e implemento infraestructuras de automatizacion e IA para empresas que ya no pueden escalar con procesos manuales.",
