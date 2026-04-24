@@ -11,8 +11,8 @@ export default function Proyectos() {
       <div className="container">
         <SectionHeader num={tx.num} title={tx.title} desc={tx.desc} />
         <div className="projects-grid">
-          {tx.items.map(p => (
-            <div key={p.title} className="project-card fade-up">
+          {tx.items.map((p, i) => (
+            <div key={i} className="project-card fade-up">
               <span className="project-tag">{p.tag}</span>
               <div className="project-title">{p.title}</div>
               <span className="project-section-label">{lb.problem}</span>
